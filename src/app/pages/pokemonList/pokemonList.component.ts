@@ -18,14 +18,9 @@ export class PokemonListComponent implements OnInit {
     this.getAllPokemon();
   }
 
-  // Usage (e.g., in ngOnInit or where you set pokemonArray)
-
   getAllPokemon() {
     this.pokemonService.getAllPokemons().subscribe((data: any) => {
-      // Assuming data.results contains the array of pokemons
-      this.pokemonArray = data.results; // This line replaces the forEach loop
-
-      // Now, chunk the array after it's fully loaded
+      this.pokemonArray = data.results;
       this.pokemonMultiArray = this.chunkPokemonArray(this.pokemonArray, 6);
     });
   }

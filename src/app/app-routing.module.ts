@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { PokemonListComponent } from './pages/pokemonList/pokemonList.component';
+import { RandomComponent } from './pages/random/random.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'pokemonList', component:PokemonListComponent},
-  {path:'pokemon/:name',  component:PokemonComponent}
+  {path:'random', component:RandomComponent},
+  {path:'pokemon/:name',  component:PokemonComponent},
+
 ];
 
 @NgModule({

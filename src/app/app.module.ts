@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { PokemonListComponent } from './pages/pokemonList/pokemonList.component';
+import { RandomComponent } from './pages/random/random.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PokemonListComponent } from './pages/pokemonList/pokemonList.component'
     HomeComponent,
     PokemonComponent,
     PokemonListComponent,
-    NavbarComponent
+    NavbarComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,
