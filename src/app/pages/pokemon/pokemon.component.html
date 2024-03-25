@@ -1,3 +1,8 @@
-<p>
-  pokemon works!
-</p>
+<div *ngIf="pickedPokemon" style="text-align:center">
+  <h1>
+  Welcome from {{ pickedPokemon }}!
+  </h1>
+  <img width="300" alt="Pokemon sprite" src="https://img.pokemondb.net/sprites/red-blue/normal/{{pickedPokemon}}.png">
+</div>
+<!--<input type="text" class="pokemonName" #pokemonName>
+<button (click)="getAPokemon(pokemonName.value)">getPokemon</button>-->

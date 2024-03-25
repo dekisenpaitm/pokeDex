@@ -1,3 +1,13 @@
-<p>
-  pokemonList works!
-</p>
+<div class="container">
+  <div class="row m-4" *ngFor="let pokemonChunk of pokemonMultiArray">
+    <div class="col-md-2" *ngFor="let pokemon of pokemonChunk">
+      <div class="card align-items-center shadow-sm" style="width: 10rem;" (click)="setPickedPokemon(pokemon.name)" [routerLink]="['../pokemon', pokemon.name]">
+        <img src="https://img.pokemondb.net/sprites/red-blue/normal/{{pokemon.name}}.png" class="card-img-top my-3" alt="{{pokemon.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{pokemon.name}}</h5>
+          <p class="card-text text-sm text-center">Click this Card!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

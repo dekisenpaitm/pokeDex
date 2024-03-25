@@ -1,6 +1,7 @@
+import { Pokemon } from './../shared/pokemon';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { Observable } from 'rxjs';
 export class PokemonService implements OnInit{
 
   pokemonList!:any;
+  pickedPokemon!:any;
 
   constructor(private http:HttpClient) {
 
@@ -22,5 +24,13 @@ export class PokemonService implements OnInit{
 
   getAPokemons(pokemonName:string):Observable<any>{
    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + pokemonName.toLowerCase());
+  }
+
+  setPickedPokemon(pokemon:any){
+    this.pickedPokemon = pokemon;
+  }
+
+  getPickedPokemon(){
+    return of(this.pickedPokemon);
   }
 }

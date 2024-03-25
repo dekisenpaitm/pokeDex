@@ -1,0 +1,7 @@
+.container img{
+  width: 5rem;
+}
+
+.card:hover{
+  border:solid crimson;
+}

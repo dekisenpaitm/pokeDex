@@ -1,13 +1,4 @@
-<div *ngIf="pokemonList" style="text-align:center">
-  <h1>
-  Welcome from {{ pokemonList.name }}!
-  </h1>
-  <img width="300" alt="Pokemon sprite" src="https://img.pokemondb.net/sprites/red-blue/normal/{{pokemonList.name}}.png">
-</div>
-<input type="text" class="pokemonName" #pokemonName>
-<button (click)="getAPokemon(pokemonName.value)">getPokemon</button>
-<div *ngFor="let pokemon of pokemonArray">
-  <div routerLink="pokemon/{{pokemon.name}}">{{pokemon.name}}
-  <img width="30" alt="" src="https://img.pokemondb.net/sprites/red-blue/normal/{{pokemon.name}}.png"></div>
-  </div>
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+
 
