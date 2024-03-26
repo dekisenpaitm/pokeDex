@@ -1,3 +1,4 @@
+import { InputComponent } from './pages/input/input.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,8 @@ import { RandomComponent } from './pages/random/random.component';
     PokemonComponent,
     PokemonListComponent,
     NavbarComponent,
-    RandomComponent
+    RandomComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,

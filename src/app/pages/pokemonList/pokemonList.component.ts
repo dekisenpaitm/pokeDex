@@ -11,6 +11,7 @@ export class PokemonListComponent implements OnInit {
 
   pokemonArray:any[] = [];
   pokemonMultiArray!:any[][];
+  currentSearchText:string="";
 
   constructor(private pokemonService:PokemonService) { }
 
@@ -21,19 +22,14 @@ export class PokemonListComponent implements OnInit {
   getAllPokemon() {
     this.pokemonService.getAllPokemons().subscribe((data: any) => {
       this.pokemonArray = data.results;
-      this.pokemonMultiArray = this.chunkPokemonArray(this.pokemonArray, 6);
     });
-  }
-
-  chunkPokemonArray(pokemonArray: any[], chunkSize: number):any[][] {
-    let result=[];
-    for (let i = 0; i < pokemonArray.length; i += chunkSize) {
-      result.push(pokemonArray.slice(i, i + chunkSize));
-    }
-    return result;
   }
 
   setPickedPokemon(pokemon:any){
     this.pokemonService.setPickedPokemon(pokemon);
+  }
+
+  setSearchText(value:string){
+    this.currentSearchText = value;
   }
 }
