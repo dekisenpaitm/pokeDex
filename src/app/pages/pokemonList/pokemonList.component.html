@@ -1,9 +1,9 @@
-<div class="container align-middle w-100">
+<div class="container w-75">
   <app-input (searchTextChange)="setSearchText($event)"></app-input>
-  <div class="d-inline-flex flex-wrap flex-grow-1 justify-content-center w-100">
+  <div class="d-flex flex-wrap flex-grow-0 justify-content-center">
   <div *ngFor="let pokemon of pokemonArray">
     <div *ngIf="currentSearchText === '' || pokemon.name.includes(currentSearchText.toLowerCase())">
-      <div class="m-1 card align-items-center shadow-sm" style="width: 10rem;" (click)="setPickedPokemon(pokemon.name)" [routerLink]="['../pokemon', pokemon.name]">
+      <div class="m-1 card align-items-center shadow-sm" style="width: 6 rem;" (click)="setPickedPokemon(pokemon.name)" [routerLink]="['../pokemon', pokemon.name]">
         <img src="https://img.pokemondb.net/sprites/red-blue/normal/{{pokemon.name}}.png" class="card-img-top my-3" alt="{{pokemon.name}}">
         <div class="card-body">
           <h5 class="card-title">{{pokemon.name}}</h5>
@@ -12,5 +12,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
