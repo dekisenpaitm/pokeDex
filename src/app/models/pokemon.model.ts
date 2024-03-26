@@ -1,5 +1,7 @@
 export class Pokemon{
-  id!:number;
+  constructor(name:string){
+    this.name=name;
+  }
   name!:string;
 }
 
@@ -30,10 +32,21 @@ export class PokemonInfo{
     name!:string;
   }
 
-  export class RandomPokemon{
-    constructor(){
-
+  export class PulledPokemon{
+    constructor(name:string,img:string,lvl:number,shiny:string,power:string,beauty:string,date:Date){
+      this.name=name;
+      this.img = img;
+      this.lvl = lvl;
+      this.shiny = shiny;
+      this.power = power;
+      this.beauty = beauty;
+      this.pulled = date;
     }
     name!:string;
-
+    img!:string;
+    lvl!:number;
+    shiny!:string;
+    power!:string;
+    beauty!:string;
+    pulled!: Date;
   }

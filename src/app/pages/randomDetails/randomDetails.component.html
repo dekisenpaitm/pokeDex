@@ -1,24 +1,24 @@
 
 <div class="container w-75">
-  <h1 class="my-2">PokemonInfo<span>:</span></h1>
+  <h1 class="my-2">PokemonInfo<span id="dots">:</span></h1>
     <div class="card my-2">
       <div class="card-body">
-        Lvl: {{level}}
+        Lvl: <span [style]="{'color':compareNumberValue(level)}"id="levelStyle">{{level}}</span>
       </div>
     </div>
     <div class="card my-2">
       <div class="card-body">
-        Shiny: {{shiny}}
+        Shiny: <span [style]="{'color':compareTextValue(shiny,'No','','','Yes')}" id="shinyStyle">{{shiny}}</span>
       </div>
     </div>
     <div class="card my-2">
       <div class="card-body">
-        Power: {{power}}
+        Power: <span [style]="{'color':compareTextValue(power,'Weak','Medium','Strong','Godlike!!')}" id="powerStyle">{{power}}</span>
       </div>
     </div>
     <div class="card my-2">
       <div class="card-body">
-        Beauty: {{beauty}}
+        Beauty: <span [style]="{'color':compareTextValue(beauty,'Ugly','Okayish','Beautiful','Breathtaking!!')}" id="beautyStyle">{{beauty}}</span>
       </div>
     </div>
 </div>
