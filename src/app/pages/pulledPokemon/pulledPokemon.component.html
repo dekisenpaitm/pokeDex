@@ -1,0 +1,28 @@
+<div *ngIf="pulledPokemon">
+  <div class="container w-75">
+    <h1 class="my-2">PulledPokemon<span id="dots">:</span></h1>
+    <div class="card my-2">
+    <div class="card-body row d-flex justify-content-center align-items-center">
+      <div class="col d-flex justify-content-center"><h4>Image</h4></div>
+      <div class="col d-flex justify-content-center"><h4>Name</h4></div>
+      <div class="col d-flex justify-content-center"><h4>Lvl</h4></div>
+      <div class="col d-flex justify-content-center"><h4>Power</h4></div>
+      <div class="col d-flex justify-content-center"><h4>Beauty</h4></div>
+      <div class="col d-flex justify-content-center"><h4>Shiny</h4></div>
+      <div class="col d-flex justify-content-center"><h4>Date</h4></div>
+    </div>
+    </div>
+    <div *ngFor="let pulled of pulledPokemon">
+      <div class="card my-2">
+        <div class="card-body row d-flex justify-content-center align-items-center">
+          <div class="col d-flex justify-content-center"><img src="{{pulled.img.toString()}}"></div>
+          <div class="col d-flex justify-content-center">{{pulled.name}}</div>
+          <div class="col d-flex justify-content-center">{{pulled.lvl}}</div>
+          <div class="col d-flex justify-content-center">{{pulled.power}}</div>
+          <div class="col d-flex justify-content-center">{{pulled.beauty}}</div>
+          <div class="col d-flex justify-content-center">{{pulled.shiny}}</div>
+          <div class="col d-flex justify-content-center">{{pulled.pulled.slice(0,21)}}</div>
+        </div>
+      </div>
+    </div>
+</div>

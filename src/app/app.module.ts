@@ -12,6 +12,7 @@ import { PokemonListComponent } from './pages/pokemonList/pokemonList.component'
 import { RandomComponent } from './pages/random/random.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { RandomDetailsComponent } from './pages/randomDetails/randomDetails.component';
+import { PulledPokemonComponent } from './pages/pulledPokemon/pulledPokemon.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RandomDetailsComponent } from './pages/randomDetails/randomDetails.comp
     RandomComponent,
     InputComponent,
     DetailsComponent,
-    RandomDetailsComponent
+    RandomDetailsComponent,
+    PulledPokemonComponent
   ],
   imports: [
     BrowserModule,

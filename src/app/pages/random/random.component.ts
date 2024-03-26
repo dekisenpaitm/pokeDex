@@ -18,9 +18,13 @@ export class RandomComponent implements OnInit {
   randomPowerLvl!:string;
   randomBeautyLvl!:string;
 
-  constructor(private pokemonService:PokemonService) { }
+  constructor(private pokemonService:PokemonService) {
+  }
 
   ngOnInit() {
+    if(localStorage.getItem('pulledPokemon')){
+      this.usersPokemon = this.pokemonService.getPulledPokemon();
+    }
   }
 
   randomizeAttributes(){
@@ -31,6 +35,8 @@ export class RandomComponent implements OnInit {
   }
 
   getRandomPokemon(){
+    let newDate = new Date()
+    console.log(newDate.toString())
     this.pokemonService.getAllPokemons().subscribe((data: any) => {
       this.allPokemons = data.results?.map((element: any) => {
         return new Pokemon(element.name);
@@ -38,16 +44,17 @@ export class RandomComponent implements OnInit {
       this.usersPokemon.push(
         new PulledPokemon(
           this.allPokemons[this.randomNumber].name,
-          "https://img.pokemondb.net/sprites/red-blue/normal/" +this.allPokemons[this.randomNumber].name+'.jpg',
+          "https://img.pokemondb.net/sprites/red-blue/normal/" +this.allPokemons[this.randomNumber].name+'.png',
           this.randomLvl,
           this.randomShiny,
           this.randomPowerLvl,
           this.randomBeautyLvl,
-          new Date))
+          newDate.toString()))
+          console.log(this.usersPokemon)
+          this.pokemonService.setPulledPokemon(this.usersPokemon);
     });
     this.randomNumber = Math.floor(Math.random()*151);
     this.randomizeAttributes();
-    console.log(this.usersPokemon);
   }
 
   setShiny(){

@@ -33,7 +33,7 @@ export class PokemonInfo{
   }
 
   export class PulledPokemon{
-    constructor(name:string,img:string,lvl:number,shiny:string,power:string,beauty:string,date:Date){
+    constructor(name:string,img:string,lvl:number,shiny:string,power:string,beauty:string,date:string){
       this.name=name;
       this.img = img;
       this.lvl = lvl;
@@ -48,5 +48,5 @@ export class PokemonInfo{
     shiny!:string;
     power!:string;
     beauty!:string;
-    pulled!: Date;
+    pulled!: string;
   }
