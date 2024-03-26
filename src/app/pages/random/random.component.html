@@ -1,9 +1,17 @@
-<div *ngIf="allPokemons !==undefined" style="text-align:center">
-  <h1>
-  You just got {{allPokemons[randomNumber].name}}!
+<div class="container col my-2" *ngIf="allPokemons !==undefined">
+  <h1 style="text-align:center">
+    Congrats!!
   </h1>
-  <img width="300" alt="Pokemon sprite" src="https://img.pokemondb.net/sprites/red-blue/normal/{{allPokemons[randomNumber].name}}.png">
+  <div class="row order-1">
+    <div class="container d-flex justify-content-center">
+      <img alt="Pokemon sprite" src="https://img.pokemondb.net/sprites/red-blue/normal/{{allPokemons[randomNumber]?.name}}.png">
+    </div>
+    <h1 style="text-align:center">
+      You just got {{allPokemons[randomNumber]?.name}}!
+      </h1>
+  </div>
+  <div class="row order-0">
+    <app-randomDetails [level]="randomLvl" [shiny]="randomShiny" [beauty]="randomBeautyLvl" [power]="randomPowerLvl" ></app-randomDetails>
+  </div>
 </div>
-<div class="d-flex flex-column align-items-center w-100 justify-content-center align-items-center my-5">
-  <button style="background-color:crimson; outline: none; border:none;"class="btn btn-dark" (click)="getAnotherRandomPokemon()">Get Another One!</button>
-</div>
+

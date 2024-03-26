@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col">
+    <div class="container">
+      <h1 class="my-2">PokemonInfo<span>:</span></h1>
+        <div class="card my-2">
+          <div class="card-body">
+            PokemonID: {{pokemonData?.id}}
+          </div>
+        </div>
+        <div class="card my-2">
+          <div class="card-body">
+            PokemonName: {{pokemonData?.name}}
+          </div>
+        </div>
+        <div class="card my-2">
+          <div class="card-body">
+            PokemonHeight: {{pokemonData?.height}}
+          </div>
+        </div>
+        <h1 class="my-2">PokemonTypes<span>:</span></h1>
+        <div *ngFor="let type of pokemonTypes">
+          <div class="card my-2">
+            <div class="card-body">
+              {{type?.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col">
+    <div class="container">
+      <h1 class="my-2">PokemonStats<span>:</span></h1>
+      <div *ngFor="let stat of pokemonStats">
+        <div class="card my-2">
+          <div class="card-body">
+          {{stat.name}} : {{stat.baseStat}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -10,6 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { PokemonListComponent } from './pages/pokemonList/pokemonList.component';
 import { RandomComponent } from './pages/random/random.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { RandomDetailsComponent } from './pages/randomDetails/randomDetails.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { RandomComponent } from './pages/random/random.component';
     PokemonListComponent,
     NavbarComponent,
     RandomComponent,
-    InputComponent
+    InputComponent,
+    DetailsComponent,
+    RandomDetailsComponent
   ],
   imports: [
     BrowserModule,
