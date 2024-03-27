@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserComment } from 'src/app/models/userComments.model';
+import { GuestbookService } from 'src/app/services/guestbook.service';
 
 @Component({
   selector: 'app-comments',
@@ -18,9 +19,12 @@ export class CommentsComponent implements OnInit {
   isSubmitted:boolean = false;
   guestBookEntries:UserComment[] = [];
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private userService:GuestbookService) { }
 
   ngOnInit() {
+    this.userService.getEntries().subscribe(entries => {
+      this.guestBookEntries = entries; // 'entries' will be your array of UserComment objects
+    });
   }
 
   onSubmit(){
@@ -29,7 +33,7 @@ export class CommentsComponent implements OnInit {
     let newDate = new Date;
     let newEntry = new UserComment(this.guestBookForm.value.name!.toString(),this.guestBookForm.value.comment!.toString(),newDate.toString())
     this.guestBookEntries.push(newEntry);
-    console.log(this.guestBookEntries);
+    this.userService.createEntry(newEntry);
     this.isSubmitted = false;
     this.guestBookForm.reset();
     }
