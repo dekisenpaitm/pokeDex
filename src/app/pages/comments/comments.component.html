@@ -1,3 +1,43 @@
-<p>
-  comments works!
-</p>
+
+<div class="container w-auto my-4">
+  <h1 class="my-4">Guestbook:</h1>
+  <form class="form" [formGroup]="guestBookForm" (ngSubmit)="onSubmit()">
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" formControlName="name" [class.invalid]="checkInput('name')">
+      <span style="color:crimson" *ngIf="checkInput('name')">This field is required! (min:4/max:120)</span>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Comment</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" formControlName="comment" [class.invalid]="checkInput('comment')">
+    <span style="color:crimson" *ngIf="checkInput('comment')">This field is required! (min:3/max:120)</span>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-10 offset-sm-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck1">
+        <label class="form-check-label" for="gridCheck1">
+          I have understood that this data will be saved temporarly and that I shouldnt use any real data.
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" style="background-color:crimson;border:none" class="btn btn-primary">Post Comment</button>
+</form>
+</div>
+
+<div class="container w-auto">
+  <div class="col" *ngIf="guestBookEntries.length>0">
+    <div class="card mb-3" *ngFor="let entries of guestBookEntries">
+      <div class="card-body">
+        <h5 class="card-title">{{entries.name}}</h5>
+        <p class="card-text">{{entries.comment}}</p>
+        <p class="card-text">{{entries.date | date :'shortDate'}}</p>
+      </div>
+    </div>
+  </div>
+</div>

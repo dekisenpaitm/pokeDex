@@ -14,6 +14,7 @@ import { RandomComponent } from './pages/random/random.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { RandomDetailsComponent } from './pages/randomDetails/randomDetails.component';
 import { PulledPokemonComponent } from './pages/pulledPokemon/pulledPokemon.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,13 @@ import { PulledPokemonComponent } from './pages/pulledPokemon/pulledPokemon.comp
     DetailsComponent,
     RandomDetailsComponent,
     PulledPokemonComponent,
-    CommentsComponent
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
