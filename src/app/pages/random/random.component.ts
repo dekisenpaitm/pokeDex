@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { Pokemon, PulledPokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 

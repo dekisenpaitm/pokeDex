@@ -10,5 +10,5 @@ export class AppComponent {
 
   constructor(private pokemonService:PokemonService){
   }
-  title = 'pokeDex';
+  title = 'RetroDex';
 }
