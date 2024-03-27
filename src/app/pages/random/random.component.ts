@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Pokemon, PulledPokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -8,6 +8,8 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./random.component.css']
 })
 export class RandomComponent implements OnInit {
+
+  pulledPokemonCount:number = 0;
 
   allPokemons:Pokemon[] = [];
   randomNumber!:number;
@@ -30,8 +32,8 @@ export class RandomComponent implements OnInit {
   randomizeAttributes(){
     this.setShiny();
     this.setLvl();
-    this.setBeautyLvl();
-    this.setPowerLvl();
+    this.randomBeautyLvl = this.setStat()
+    this.randomPowerLvl = this.setStat()
   }
 
   getRandomPokemon(){
@@ -52,6 +54,7 @@ export class RandomComponent implements OnInit {
           newDate.toString()))
           console.log(this.usersPokemon)
           this.pokemonService.setPulledPokemon(this.usersPokemon);
+          this.pokemonService.addPulledCounter();
     });
     this.randomNumber = Math.floor(Math.random()*151);
     this.randomizeAttributes();
@@ -67,42 +70,24 @@ export class RandomComponent implements OnInit {
     this.randomLvl = quality;
   }
 
-  setPowerLvl(){
-    let power = Math.floor(Math.random()*100)
-    console.log(power)
+  setStat():string{
+    let randomNumber = Math.floor(Math.random()*100)
+    let stat = "";
     switch(true){
-      case (power <= 25):
-        this.randomPowerLvl = "Weak";
+      case (randomNumber <= 25):
+        stat = "*";
         break;
-      case (power >= 26 && power <= 75):
-        this.randomPowerLvl = "Medium";
+      case (randomNumber >= 26 && randomNumber <= 75):
+        stat = "**";
         break;
-      case (power >= 76 && power <= 98):
-        this.randomPowerLvl = "Strong";
+      case (randomNumber >= 76 && randomNumber <= 98):
+        stat = "***";
         break;
-      case (power >= 99 && power <= 100):
-        this.randomPowerLvl = "Godlike!!";
+      case (randomNumber >= 99 && randomNumber <= 100):
+        stat = "****";
         break;
     }
-  }
-
-  setBeautyLvl(){
-    let beauty = Math.floor(Math.random()*100)
-    console.log(beauty)
-    switch(true){
-      case (beauty <= 25):
-        this.randomBeautyLvl = "Ugly";
-        break;
-      case (beauty >= 26 && beauty <= 75):
-        this.randomBeautyLvl = "Okayish";
-        break;
-      case (beauty >= 76 && beauty <= 98):
-        this.randomBeautyLvl = "Beautiful";
-        break;
-      case (beauty >= 99 && beauty <= 100):
-        this.randomBeautyLvl = "Breathtaking!!";
-        break;
-    }
+    return stat;
   }
 
   getAnotherRandomPokemon(){

@@ -1,28 +1,31 @@
-<div *ngIf="pulledPokemon">
-  <div class="container w-75">
+<div class="container my-2 text-center align-content-center justify-content-center">
+  <div class="col my-4" *ngIf="pulledPokemon.length <= 0">
+    <img class="my-2"src="https://img1.picmix.com/output/stamp/normal/8/1/7/3/1983718_ac2bd.gif">
+    <h1 class="my-2">Looks kinda empty... (~_~;)</h1>
+    <div class="d-flex justify-content-center my-2"><button style="background-color:crimson; border:none" class="btn btn-dark w-lg-25 my-2" routerLink="/random">Go to Random! page</button></div>
+  </div>
+</div>
+
+<div *ngIf="pulledPokemon.length > 0">
+  <div class="container w-auto">
     <h1 class="my-2">PulledPokemon<span id="dots">:</span></h1>
-    <div class="card my-2">
-    <div class="card-body row d-flex justify-content-center align-items-center">
-      <div class="col d-flex justify-content-center"><h4>Image</h4></div>
-      <div class="col d-flex justify-content-center"><h4>Name</h4></div>
-      <div class="col d-flex justify-content-center"><h4>Lvl</h4></div>
-      <div class="col d-flex justify-content-center"><h4>Power</h4></div>
-      <div class="col d-flex justify-content-center"><h4>Beauty</h4></div>
-      <div class="col d-flex justify-content-center"><h4>Shiny</h4></div>
-      <div class="col d-flex justify-content-center"><h4>Date</h4></div>
-    </div>
-    </div>
-    <div *ngFor="let pulled of pulledPokemon">
-      <div class="card my-2">
+    <div *ngFor="let _ of pulledPokemon, let i = index">
+      <div class="card my-2" *ngIf="pulledPokemon[pulledPokemon.length -1 -i] as pulled">
         <div class="card-body row d-flex justify-content-center align-items-center">
-          <div class="col d-flex justify-content-center"><img src="{{pulled.img.toString()}}"></div>
-          <div class="col d-flex justify-content-center">{{pulled.name}}</div>
-          <div class="col d-flex justify-content-center">{{pulled.lvl}}</div>
-          <div class="col d-flex justify-content-center">{{pulled.power}}</div>
-          <div class="col d-flex justify-content-center">{{pulled.beauty}}</div>
-          <div class="col d-flex justify-content-center">{{pulled.shiny}}</div>
-          <div class="col d-flex justify-content-center">{{pulled.pulled.slice(0,21)}}</div>
+          <div class="col px-4 d-flex justify-content-center align-items-center"><img src="{{pulled.img.toString()}}"></div>
+          <div class="col-md d-flex justify-content-center align-items-center"><div class="col d-flex justify-content-center align-items-center">Name:</div><div class="col d-flex justify-content-center align-items-center">{{pulled.name}}</div></div>
+          <div class="col-md d-flex justify-content-center align-items-center"><div class="col d-flex justify-content-center align-items-center">Level:</div><div class="col d-flex justify-content-center align-items-center">{{pulled.lvl}}</div></div>
+          <div class="col-md d-flex justify-content-center align-items-center"><div class="col d-flex justify-content-center align-items-center">Power:</div><div class="col d-flex justify-content-center align-items-center">{{pulled.power}}</div></div>
+          <div class="col-md d-flex justify-content-center align-items-center"><div class="col d-flex justify-content-center align-items-center">Beauty:</div><div class="col d-flex justify-content-center align-items-center">{{pulled.beauty}}</div></div>
+          <div class="col-md d-flex justify-content-center align-items-center"><div class="col d-flex justify-content-center align-items-center">Shiny:</div><div class="col d-flex justify-content-center align-items-center">{{pulled.shiny}}</div></div>
+          <div class="col-md d-flex justify-content-center align-items-center" ><div class="col d-flex justify-content-center align-items-center">Pulled:</div><div class="col d-flex justify-content-center align-items-center">{{pulled.pulled.slice(0,21) | date: 'shortDate'}}</div></div>
+          <div class="col-md d-flex justify-content-center align-items-center">
+            <button style="background-color: crimson; border: none;" class="btn btn-dark text-white w-auto m-2" (click)="removePulledPokemon(i)">Release Pokemon</button>
+          </div>
         </div>
       </div>
     </div>
 </div>
+
+
+

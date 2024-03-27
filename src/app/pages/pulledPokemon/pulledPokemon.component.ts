@@ -15,7 +15,7 @@ export class PulledPokemonComponent implements OnInit {
 
   ngOnInit() {
     this.getPulledPokemon();
-    console.log(this.pulledPokemon);
+    console.log(this.pulledPokemon)
   }
 
   getPulledPokemon(){
@@ -23,6 +23,12 @@ export class PulledPokemonComponent implements OnInit {
       console.log(element.date)
       return new PulledPokemon(element.name, element.img, element.lvl, element.shiny, element.power, element.beauty, element.pulled);
     })
+  }
+
+  removePulledPokemon(index:number){
+    let position = this.pulledPokemon.length -1 -index
+    this.pulledPokemon.splice(position, 1)
+    this.pokemonService.setPulledPokemon(this.pulledPokemon)
   }
 
 }

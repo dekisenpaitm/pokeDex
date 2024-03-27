@@ -1,0 +1,8 @@
+button:hover{
+  opacity: 0.8;
+}
+
+button:active{
+  padding:3px 4px 3px 6px;
+  font-size: 0.9rem;
+}

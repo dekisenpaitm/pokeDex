@@ -14,7 +14,10 @@
     <app-randomDetails [level]="randomLvl" [shiny]="randomShiny" [beauty]="randomBeautyLvl" [power]="randomPowerLvl" ></app-randomDetails>
   </div>
 </div>
-<div class="container col my-2 align-content-center">
-  <div class="d-flex justify-content-center my-4" *ngIf="allPokemons[randomNumber]?.name == null"><h1>Time to fetch your first Pokemon!</h1></div>
+<div class="container my-2 text-center align-content-center justify-content-center">
+  <div class="col my-4" *ngIf="allPokemons[randomNumber]?.name == null">
+    <img class="wobble-hor-bottom" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffpwlo-0620be65-1102-4add-b3c4-2d6477c1f5a9.png/v1/fill/w_1280,h_1280/sprite_pokemon_by_jormxdos_dffpwlo-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmcHdsby0wNjIwYmU2NS0xMTAyLTRhZGQtYjNjNC0yZDY0NzdjMWY1YTkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.On0iCw2qFr9dV_6YocgpdqyZlY_0YNW26u_c5EPQfq0">
+    <h1>Time to fetch a new Pokemon!</h1>
+  </div>
   <div class="container d-flex justify-content-center"><button style="background-color:crimson; border:none" class="btn btn-dark w-lg-25" (click)="getRandomPokemon()">Get New Random!</button></div>
 </div>

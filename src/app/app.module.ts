@@ -1,3 +1,4 @@
+import { CommentsComponent } from './pages/comments/comments.component';
 import { InputComponent } from './pages/input/input.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,8 @@ import { PulledPokemonComponent } from './pages/pulledPokemon/pulledPokemon.comp
     InputComponent,
     DetailsComponent,
     RandomDetailsComponent,
-    PulledPokemonComponent
+    PulledPokemonComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

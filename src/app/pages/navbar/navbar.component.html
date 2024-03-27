@@ -18,7 +18,13 @@
           <a class="nav-link" routerLink="random">Random!</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="owned">Pulled</a>
+          <a class="nav-link position-relative" routerLink="owned" (click)="clearCounter()">
+            Pulled
+            <span *ngIf="pulledCounter.source._value > 0" class="position-absolute my-2 top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{pulledCounter.source._value}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </a>
         </li>
       </ul>
     </div>
