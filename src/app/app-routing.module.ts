@@ -6,6 +6,7 @@ import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { PokemonListComponent } from './pages/pokemonList/pokemonList.component';
 import { RandomComponent } from './pages/random/random.component';
 import { PulledPokemonComponent } from './pages/pulledPokemon/pulledPokemon.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'random', component:RandomComponent},
   {path:'owned', component:PulledPokemonComponent},
   {path:'pokemon/:name',  component:PokemonComponent},
-  {path: 'guestbook', component:CommentsComponent}
+  {path: 'guestbook', component:CommentsComponent},
+  {path:'**', component:ErrorComponent}
 
 ];
 

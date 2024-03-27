@@ -32,11 +32,12 @@
 
 <div class="container w-auto">
   <div class="col" *ngIf="guestBookEntries.length>0">
-    <div class="card mb-3" *ngFor="let entries of guestBookEntries">
-      <div class="card-body">
-        <h5 class="card-title">{{entries.name}}</h5>
-        <p class="card-text">{{entries.comment}}</p>
-        <p class="card-text">{{entries.date | date :'shortDate'}}</p>
+    <div class="card mb-3" *ngFor="let entries of guestBookEntries, let i = index">
+      <div></div>
+      <div class="card-body" *ngIf="guestBookEntries[guestBookEntries.length -1 -i] as entry">
+        <h5 class="card-title">{{entry.name}}</h5>
+        <p class="card-text">{{entry.comment}}</p>
+        <p class="card-text">{{entry.date | date :'shortDate'}}</p>
       </div>
     </div>
   </div>

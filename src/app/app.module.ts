@@ -18,6 +18,7 @@ import { RandomDetailsComponent } from './pages/randomDetails/randomDetails.comp
 import { PulledPokemonComponent } from './pages/pulledPokemon/pulledPokemon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment.development';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { environment } from 'src/environments/environment.development';
     RandomDetailsComponent,
     PulledPokemonComponent,
     CommentsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
